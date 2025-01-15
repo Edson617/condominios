@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #837c7c18;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+ 
+  padding: 20px;
+}
+
+.welcome-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome-section h1 {
+  font-size: 50px;
+  color: #b22222;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  color: #555;
+}
+
+.image-section {
+  width: 200px; /* Aumenta el tamaño de la imagen */
+  height: 150px; /* Aumenta el tamaño de la imagen */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-section img {
+  max-width: 1500px; /* Tamaño reducido */
+  height: auto;
+  border-radius: 10%; /* Bordes redondeados */
+}
