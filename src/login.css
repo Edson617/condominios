@@ -1,94 +1,103 @@
 /* General Styles */
 body {
-    margin: 0;
+    margin: 100;
     font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Se asegura de ocupar toda la altura de la pantalla */
-  }
+    height: 90vh; /* Se asegura de ocupar toda la altura de la pantalla */
+}
 
-  /* Login Container */
-  .login-container {
-    background-color: #ffffff;
+/* Login Container */
+.login-container {
+    background-color: #ffffff07;
     width: 350px; /* Fija un ancho razonable para centrarlo mejor */
     padding: 30px;
     border-radius: 10px;
-   
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Centra el contenido dentro del contenedor */
     text-align: center; /* Centra el texto dentro del contenedor */
-  }
-  
-  
-  /* Header */
-  .login-header {
+}
+
+/* Header */
+.login-header {
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  .login-header h1 {
+}
+
+.login-header h1 {
     font-size: 2rem;
     color: #052131;
     font-weight: bold;
-  }
-  
-  /* Avatar */
-  .login-avatar img {
+}
+
+/* Avatar */
+.login-avatar img {
     width: 120px; /* Aumenta el tamaño de la imagen */
     height: 120px; /* Aumenta el tamaño de la imagen */
     border-radius: 0%;
-    border: 8px solid #ffffff;
     margin-bottom: 20px;
-  }x
-  
-  /* Title */
-  .login-title {
+}
+
+/* Title */
+.login-title {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 20px;
-  }
-  
-  /* Form */
-  .login-form {
+}
+
+/* Form */
+.login-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  
-  /* Input fields */
-  .login-input {
+}
+
+/* Input fields */
+.login-input {
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
     outline: none;
-  }
-  
-  .login-input:focus {
+}
+
+.login-input:focus {
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-  }
-  
-  /* Button */
-  .login-button {
-    padding: 20px;
-    font-size: 1.2rem;
-    background-color: #052131;
+}
+
+/* Button (opciones para hacer más grande o más pequeño) */
+.login-button {
+    padding: 9px; /* Puedes cambiar el padding para hacerlo más grande o más pequeño */
+    font-size: 1.2rem; /* Cambia el tamaño de la fuente */
+    background-color: #248D24;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #052131;
-    
-  }
-  
+}
+
+/* Opción más grande */
+.login-button.grande {
+    padding: 40px; /* Aumenta el padding para hacerlo más grande */
+    font-size: 1.0rem; /* Aumenta el tamaño del texto */
+}
+
+/* Opción más pequeño */
+.login-button.pequeño {
+    padding: 30px; /* Disminuye el padding para hacerlo más pequeño */
+    font-size: 1rem; /* Disminuye el tamaño del texto */
+}
+
+.login-button:hover {
+    background-color: #053110;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+
+}

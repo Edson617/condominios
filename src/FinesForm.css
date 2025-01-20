@@ -1,0 +1,82 @@
+/* FinesForm.css */
+.fines-container {
+    max-width: 480px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    position: relative;
+  }
+  
+  .fines-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .fines-header h1 {
+    font-size: 2rem;
+    color: #052131;
+    font-weight: bold;
+  }
+  
+  .fines-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group textarea {
+    resize: none; /* Evita que el usuario cambie el tamaño del área de texto */
+    height: 80px; /* Ajusta la altura predeterminada */
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  .fines-button {
+    background-color: #248D24;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fines-button:hover {
+    background-color: #218f1d;
+    transform: translateY(-2px);
+  }
+  
+  .fines-button:active {
+    transform: translateY(0);
+  }
+  

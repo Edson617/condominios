@@ -1,0 +1,91 @@
+/* PaymentForm.css */
+.payment-container {
+    max-width: 480px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    position: relative;  /* Asegura que los elementos dentro del contenedor se posicionen correctamente */
+  }
+  
+  .payment-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Posición relativa para poder colocar la imagen fuera del contenedor */
+  }
+  
+  .payment-header h1 {
+    font-size: 2rem;
+    color: #052131;
+    font-weight: bold;
+  }
+  
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  .payment-button {
+    background-color: #248D24;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-button:hover {
+    background-color: #218f1d;
+    transform: translateY(-2px);
+  }
+  
+  .payment-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Imagen fuera del contenedor, posicionada a la izquierda */
+  .payment-header::before {
+    content: '';
+    position: absolute;
+    left: -40px;  /* Posiciona la imagen fuera del contenedor */
+    top: 50%;     /* Alinea la imagen al centro del contenedor */
+    transform: translateY(-50%); /* Alineación vertical exacta */
+    width: 40px;  /* Ajusta el tamaño de la imagen */
+    height: 40px; /* Ajusta el tamaño de la imagen */
+    background-image: url('src\imagenes\secure-payment.png'); /* Ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Ligera opacidad */
+  }
+  
