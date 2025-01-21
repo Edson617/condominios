@@ -1,4 +1,5 @@
-import React from "react";
+
+
 import "./ProfilesList.css";
 
 function ProfilesList() {
