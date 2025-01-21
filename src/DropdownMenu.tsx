@@ -22,6 +22,7 @@ function DropdownMenu() {
           <Link to="/PaymentForm" className="menu-item">Registrar pago</Link>
           <Link to="/FinesForm" className="menu-item">Registrar multas</Link>
           <Link to="/GatePermissionForm" className="menu-item">Permiso de portones</Link>
+          <Link to="/profiles" className="menu-item">Perfiles</Link> {/* Agregado correctamente */}
         </div>
       )}
     </div>

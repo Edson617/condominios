@@ -9,7 +9,7 @@ import PaymentForm from './PaymentForm.tsx'; // Importar el componente PaymentFo
 import FinesForm from './FinesForm.tsx'; // Importar el componente FinesForm
 import GatePermissionForm from './GatePermissionForm.tsx'; // Importar el formulario de permiso de portones
 import './registro.css';
-
+import ProfilesList from "./ProfilesList.tsx"; // Importa el nuevo componente
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter> {/* Envolver la aplicación en BrowserRouter */}
@@ -19,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/register" element={<RegisterScreen />} /> {/* Ruta para RegisterScreen */}
         <Route path="/PaymentForm" element={<PaymentForm />} /> {/* Ruta para el formulario de pago */}
         <Route path="/FinesForm" element={<FinesForm />} /> {/* Ruta para el formulario de multas */}
+        <Route path="/profiles" element={<ProfilesList />} />
         <Route path="/GatePermissionForm" element={<GatePermissionForm />} /> {/* Ruta para el formulario de permiso de portones */}
       </Routes>
     </BrowserRouter>
