@@ -1,5 +1,6 @@
 import React from "react";
 import './login.css';  // Asegúrate de que el archivo CSS esté correctamente vinculado.
+import avatarImage from './imagenes/working.png'; // Importar la imagen correctamente
 
 const LoginScreen: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const LoginScreen: React.FC = () => {
         <h1>Condominios.com</h1>
       </header>
       <div className="login-avatar">
-        <img src="src\imagenes\working.png" alt="User avatar" />
+        <img src={avatarImage} alt="User avatar" />
       </div>
       <h2 className="login-title">Log In</h2>
       <form className="login-form">
