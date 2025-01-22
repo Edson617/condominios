@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import './DropdownMenu.css'; // Importar el CSS del menú desplegable
+import deparImage from './assets/departamento.png'; // Importar la imagen correctamente
 
 function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,10 +43,7 @@ function HomePage() {
 
       {/* Sección de la imagen */}
       <div className="image-section">
-        <img
-          src="src/imagenes/departamento.png"
-          alt="Building illustration"
-        />
+        <img src={deparImage} alt="Departamento" />
       </div>
     </div>
   );
