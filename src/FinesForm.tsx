@@ -8,6 +8,8 @@ function FinesForm() {
     reason: '',
     amount: '',
     date: '',
+    user: '',  // Nuevo campo para el usuario
+    department: '',  // Nuevo campo para el departamento
   });
 
   const API_URL = 'http://localhost:4000/api/insertar_multas'; // URL de la API
@@ -87,6 +89,32 @@ function FinesForm() {
             value={fine.date}
             onChange={handleChange}
             required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="user">Usuario:</label>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            value={fine.user}
+            onChange={handleChange}
+            required
+            placeholder="Nombre del usuario"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="department">Departamento:</label>
+          <input
+            type="text"
+            id="department"
+            name="department"
+            value={fine.department}
+            onChange={handleChange}
+            required
+            placeholder="Departamento del usuario"
           />
         </div>
 

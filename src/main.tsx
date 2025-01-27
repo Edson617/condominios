@@ -10,6 +10,7 @@ import FinesForm from './FinesForm.tsx'; // Importar el componente FinesForm
 import GatePermissionForm from './GatePermissionForm.tsx'; // Importar el formulario de permiso de portones
 import './registro.css';
 import ProfilesList from "./ProfilesList.tsx"; // Importa el nuevo componente
+import Notifications from './Notifications.tsx'; // Asegúrate de que la ruta sea correcta
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter> {/* Envolver la aplicación en BrowserRouter */}
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/FinesForm" element={<FinesForm />} /> {/* Ruta para el formulario de multas */}
         <Route path="/profiles" element={<ProfilesList />} />
         <Route path="/GatePermissionForm" element={<GatePermissionForm />} /> {/* Ruta para el formulario de permiso de portones */}
+        <Route path="/notificaciones" element={<Notifications />} /> {/* Ruta para la interfaz de notificaciones */}
       </Routes>
     </BrowserRouter>
   </StrictMode>

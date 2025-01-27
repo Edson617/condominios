@@ -1,0 +1,23 @@
+.notifications ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notifications li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.unread {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.read {
+  background-color: #e0e0e0;
+}
+
+button {
+  margin-top: 5px;
+}
