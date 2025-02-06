@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './registro.css';
+import avatarImage from "./imagenes/customer.png"; // Importar la imagen
 
 interface FormData {
   username: string;
@@ -74,7 +75,7 @@ function RegisterScreen() {
         <h1>Condominios.com</h1>
       </header>
       <div className="register-avatar">
-        <img src="src/imagenes/customer.png" alt="User avatar" />
+        <img src={avatarImage} alt="User avatar" /> {/* Imagen importada */}
       </div>
       <h2 className="register-title">Registro</h2>
       <form className="register-form" onSubmit={handleSubmit}>
@@ -125,19 +126,18 @@ function RegisterScreen() {
           maxLength={5} // Máximo 5 dígitos
         />
 
-<label htmlFor="role">Selecciona un rol:</label>
-<select
-  id="role"
-  name="role"
-  className="register-input"
-  value={formData.role}
-  onChange={handleInputChange}
-  required
->
-  <option value="user">Usuario</option>
-  <option value="admin">Administrador</option>
-</select>
-
+        <label htmlFor="role">Selecciona un rol:</label>
+        <select
+          id="role"
+          name="role"
+          className="register-input"
+          value={formData.role}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="user">Usuario</option>
+          <option value="admin">Administrador</option>
+        </select>
 
         <button type="submit" className="register-button">Registrar</button>
       </form>
