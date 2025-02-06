@@ -31,6 +31,9 @@ body {
 }
 
 .welcome-section h1 {
+  position: absolute; /* Posiciona el menú de forma absoluta */
+  top: 90px; /* Ajusta la distancia desde la parte superior */
+  left: 150px;
   font-size: 50px;
   color: #052131;
   margin-bottom: 10px;

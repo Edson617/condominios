@@ -1,0 +1,116 @@
+/* Barra de navegación */
+.navbar {
+  background-color: #052131; /* Color de fondo más oscuro */
+  padding: 1rem 2rem; /* Añadido un poco de espacio en los lados */
+  color: white;
+  border-bottom: 2px solid #1d4fd800; /* Línea de separación sutil */
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que quede encima de otros elementos */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para el efecto flotante */
+}
+
+/* Lista de elementos de la barra de navegación */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly; /* Espaciado más equitativo entre los elementos */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Elemento individual de la barra de navegación */
+.navbar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Más espacio entre el icono y el texto */
+  cursor: pointer;
+  padding: 0.5rem 1.25rem; /* Más espacio alrededor */
+  border-radius: 0.75rem; /* Bordes más redondeados */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de hover */
+.navbar-item:hover {
+  background-color: #218f1d; /* Azul más oscuro al hacer hover */
+  transform: scale(1.0); /* Efecto de ampliación al pasar el ratón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el efecto flotante */
+}
+
+/* Icono de la barra de navegación */
+.navbar-icon {
+  font-size: 1.4rem; /* Tamaño de icono ligeramente más grande */
+  color: white; /* Asegura que el icono sea blanco */
+  transition: color 0.3s ease;
+}
+
+/* Espaciado entre los elementos de la barra de navegación */
+.navbar-item span {
+  font-size: 1.1rem; /* Tamaño de texto ligeramente más grande */
+  font-weight: 600;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de cambio de color en el texto al hacer hover */
+.navbar-item:hover span {
+  color: #f1f1f1; /* Cambia el texto a un blanco suave al hacer hover */
+}
+
+/* Alerta de notificación */
+.notification-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: rgba(219, 19, 19, 0.596);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 80%;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+/* Ajuste del contenido debajo de la barra de navegación */
+.dashboard-content {
+  padding-top: 4rem; /* Asegura que el contenido no se sobreponga a la barra de navegación */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem; /* Menos espacio en pantallas pequeñas */
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+    align-items: flex-start;
+  }
+
+  .navbar-item {
+    width: 100%; /* Los elementos ocupan todo el ancho disponible */
+    padding: 1rem; /* Espaciado más amplio para mayor claridad */
+    text-align: left;
+  }
+
+  .navbar-icon {
+    font-size: 1.5rem; /* Iconos más grandes en pantallas pequeñas */
+  }
+}

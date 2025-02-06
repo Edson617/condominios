@@ -11,6 +11,8 @@ import GatePermissionForm from './GatePermissionForm.tsx'; // Importar el formul
 import './registro.css';
 import ProfilesList from "./ProfilesList.tsx"; // Importa el nuevo componente
 import Notifications from './Notifications.tsx'; // Asegúrate de que la ruta sea correcta
+import Dashboard from './dashboard.tsx'; // Asegúrate de que la ruta sea correcta
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter> {/* Envolver la aplicación en BrowserRouter */}
@@ -23,6 +25,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/profiles" element={<ProfilesList />} />
         <Route path="/GatePermissionForm" element={<GatePermissionForm />} /> {/* Ruta para el formulario de permiso de portones */}
         <Route path="/notificaciones" element={<Notifications />} /> {/* Ruta para la interfaz de notificaciones */}
+        <Route path="/dashboard" element={<Dashboard />} /> {/* Ruta para la interfaz de notificaciones */}
+
       </Routes>
     </BrowserRouter>
   </StrictMode>
