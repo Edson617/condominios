@@ -12,7 +12,7 @@ function FinesForm() {
     department: '',  // Nuevo campo para el departamento
   });
 
-  const API_URL = 'http://localhost:4000/api/insertar_multas'; // URL de la API
+  const API_URL = 'https://apicondominios.onrender.com/api/insertar_multas'; // URL de la API en Render
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

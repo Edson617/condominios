@@ -23,7 +23,7 @@ const LoginScreen: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/api/login", {
+      const response = await fetch("https://apicondominios.onrender.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

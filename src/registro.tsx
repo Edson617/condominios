@@ -42,7 +42,7 @@ function RegisterScreen() {
     }
 
     try {
-      const response = await fetch('http://localhost:4000/api/register', {
+      const response = await fetch('https://apicondominios.onrender.com/api/register', {  // Cambia esta URL por la de tu API en Render
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
