@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
     const fetchNotifications = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get<Notification[]>('http://localhost:4000/api/notifications', {
+        const response = await axios.get<Notification[]>('https://apicondominios.onrender.com/api/notifications', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
