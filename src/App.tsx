@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import './DropdownMenu.css'; // Importar el CSS del menú desplegable
-import deparImage from './assets/departamento.png'; // Importar la imagen correctamente
+import deparImage from './assets/condominioNO.png'; // Importar la imagen correctamente
 
 function HomePage() {
   const [isOpen, setIsOpen] = useState(false);

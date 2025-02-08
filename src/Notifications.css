@@ -1,60 +1,96 @@
+/* Estilos generales para las notificaciones */
+.notifications {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+  overflow-y: auto; /* Habilitamos el scroll cuando hay muchas notificaciones */
+  max-height: 80vh; /* Ajustamos la altura máxima para que se pueda desplazar */
+  border: 1px solid #ccc; /* Agregamos borde para que se vea la caja de notificaciones */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilos de la lista de notificaciones */
 .notifications ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
+/* Estilos para cada notificación */
 .notifications li {
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: block; /* Aseguramos que las notificaciones se acomoden en línea */
+  position: relative;
+  overflow: hidden;
+  border-left: 5px solid #007bff;
+  word-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
 }
 
+/* Estilo para notificaciones no leídas */
 .unread {
-  background-color: #f1f1f1;
+  background-color: #f8f9fa;
   font-weight: bold;
+  border-left-color: #007bff;
 }
 
+/* Estilo para notificaciones leídas */
 .read {
-  background-color: #e6e6e6;
+  background-color: #e9ecef;
+  border-left-color: #6c757d;
 }
 
-button {
-  margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.notifications li p {
-  font-size: 14px;
-  color: #333;
-  margin: 0;
-}
-
+/* Estilo del título de la notificación */
 .notifications li h4 {
   font-size: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   color: #333;
   font-weight: bold;
 }
 
+/* Estilo de la fecha de la notificación */
 .notifications li time {
   font-size: 12px;
   color: #888;
   margin-top: 8px;
+  display: block;
+}
+
+/* Contenedor de las acciones de la notificación (botones) */
+.notification-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilos para los botones de las acciones */
+.notification-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para el botón de eliminar */
+.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Efecto hover en el botón de eliminar */
+.delete:hover {
+  background-color: #c82333;
+}
+
+/* 🎬 Animación de eliminación de notificación */
+.fade-out {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }

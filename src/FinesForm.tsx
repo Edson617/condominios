@@ -8,9 +8,11 @@ function FinesForm() {
     reason: '',
     amount: '',
     date: '',
-    user: '',  // Nuevo campo para el usuario
-    department: '',  // Nuevo campo para el departamento
+    user: '',
+    department: '',
   });
+  const [isLoading, setIsLoading] = useState(false);  // Estado para manejar "Cargando..."
+  const [showModal, setShowModal] = useState(false); // Estado para manejar el modal de éxito
 
   const API_URL = 'https://apicondominios.onrender.com/api/insertar_multas'; // URL de la API en Render
 
@@ -24,7 +26,7 @@ function FinesForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setIsLoading(true); // Mostrar "Cargando..."
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -37,15 +39,23 @@ function FinesForm() {
       if (response.ok) {
         const result = await response.json();
         console.log('Multa registrada con éxito:', result);
-        navigate('/confirmacion');
+        setIsLoading(false);
+        setShowModal(true); // Mostrar el modal de éxito
       } else {
         console.error('Error al registrar la multa:', response.statusText);
+        setIsLoading(false);
         alert('No se pudo registrar la multa. Verifica los datos e inténtalo nuevamente.');
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
+      setIsLoading(false);
       alert('Ocurrió un error en la conexión. Inténtalo más tarde.');
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    navigate('/confirmacion');  // Redirigir después de que el modal se cierre
   };
 
   return (
@@ -118,8 +128,20 @@ function FinesForm() {
           />
         </div>
 
-        <button type="submit" className="fines-button">Registrar Multa</button>
+        <button type="submit" className="fines-button">
+          {isLoading ? 'Cargando...' : 'Registrar Multa'}
+        </button>
       </form>
+
+      {/* Modal de éxito */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>¡Multa registrada exitosamente!</h2>
+            <button onClick={closeModal}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
