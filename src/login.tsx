@@ -9,12 +9,9 @@ interface LoginForm {
 }
 
 const LoginScreen: React.FC = () => {
-  const [formData, setFormData] = useState<LoginForm>({
-    phone: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState<LoginForm>({ phone: "", password: "" });
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate(); // Usamos 'useNavigate' para redirigir después del login
+  const navigate = useNavigate(); // Hook para la navegación
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,12 +19,12 @@ const LoginScreen: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null); // Resetear error antes de hacer la petición
+
     try {
       const response = await fetch("https://apicondominios.onrender.com/api/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -38,15 +35,20 @@ const LoginScreen: React.FC = () => {
 
       const data = await response.json();
       console.log("Login exitoso:", data);
+
       localStorage.setItem("token", data.token); // Guardamos el token
-      navigate("/dashboard"); // Redirigimos al usuario a la página del dashboard
-    } catch (error: unknown) {
-      console.error("Error al iniciar sesión:", error);
-      if (error instanceof Error) {
-        setError(error.message); // Ahora podemos acceder al mensaje del error
+      localStorage.setItem("role", data.role);   // Guardamos el rol del usuario
+
+      // Redirigir según el rol
+      if (data.role === "admin") {
+        navigate("/admin-dashboard");
       } else {
-        setError("Ha ocurrido un error desconocido");
+        navigate("/user-dashboard");
       }
+
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      setError(error instanceof Error ? error.message : "Ha ocurrido un error desconocido");
     }
   };
 
@@ -59,7 +61,9 @@ const LoginScreen: React.FC = () => {
         <img src={avatarImage} alt="User avatar" />
       </div>
       <h2 className="login-title">Log In</h2>
+
       {error && <div className="error-message">{error}</div>} {/* Mostrar mensaje de error */}
+
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="text"

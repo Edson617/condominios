@@ -1,32 +1,32 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Importar BrowserRouter y Routes
-import './index.css';
-import App from './App.tsx'; // Importar el componente principal
-import LoginScreen from './login.tsx'; // Importar el componente LoginScreen
-import RegisterScreen from './registro.tsx'; // Importar el componente RegisterScreen
-import PaymentForm from './PaymentForm.tsx'; // Importar el componente PaymentForm
-import FinesForm from './FinesForm.tsx'; // Importar el componente FinesForm
-import GatePermissionForm from './GatePermissionForm.tsx'; // Importar el formulario de permiso de portones
-import './registro.css';
-import ProfilesList from "./ProfilesList.tsx"; // Importa el nuevo componente
-import Notifications from './Notifications.tsx'; // Asegúrate de que la ruta sea correcta
-import Dashboard from './dashboard.tsx'; // Asegúrate de que la ruta sea correcta
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+import App from "./App.tsx";
+import LoginScreen from "./login.tsx";
+import RegisterScreen from "./registro.tsx";
+import PaymentForm from "./PaymentForm.tsx";
+import FinesForm from "./FinesForm.tsx";
+import GatePermissionForm from "./GatePermissionForm.tsx";
+import ProfilesList from "./ProfilesList.tsx";
+import Notifications from "./Notifications.tsx";
+import AdminDashboard from "./dashboard.tsx"; // Dashboard de admin
+import UserDashboard from "./UserDashboard.tsx";   // Dashboard de usuario
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter> {/* Envolver la aplicación en BrowserRouter */}
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} /> {/* Ruta para la página principal */}
-        <Route path="/login" element={<LoginScreen />} /> {/* Ruta para LoginScreen */}
-        <Route path="/register" element={<RegisterScreen />} /> {/* Ruta para RegisterScreen */}
-        <Route path="/PaymentForm" element={<PaymentForm />} /> {/* Ruta para el formulario de pago */}
-        <Route path="/FinesForm" element={<FinesForm />} /> {/* Ruta para el formulario de multas */}
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/PaymentForm" element={<PaymentForm />} />
+        <Route path="/FinesForm" element={<FinesForm />} />
         <Route path="/profiles" element={<ProfilesList />} />
-        <Route path="/GatePermissionForm" element={<GatePermissionForm />} /> {/* Ruta para el formulario de permiso de portones */}
-        <Route path="/notificaciones" element={<Notifications />} /> {/* Ruta para la interfaz de notificaciones */}
-        <Route path="/dashboard" element={<Dashboard />} /> {/* Ruta para la interfaz de notificaciones */}
-
+        <Route path="/GatePermissionForm" element={<GatePermissionForm />} />
+        <Route path="/notificaciones" element={<Notifications />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} /> {/* Ruta para admin */}
+        <Route path="/user-dashboard" element={<UserDashboard />} />   {/* Ruta para usuario */}
       </Routes>
     </BrowserRouter>
   </StrictMode>
