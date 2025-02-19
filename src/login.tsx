@@ -22,7 +22,7 @@ const LoginScreen: React.FC = () => {
     setError(null); // Resetear error antes de hacer la petición
 
     try {
-      const response = await fetch("https://apicondominios.onrender.com/api/login", {
+      const response = await fetch("https://apicondominios.onrender.com/api/auth/login", { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
