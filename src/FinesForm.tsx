@@ -27,11 +27,22 @@ function FinesForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true); // Mostrar "Cargando..."
+    
+    // Obtener el token del localStorage o desde otro lugar donde lo almacenes
+    const token = localStorage.getItem("token");  // Asegúrate de que el token se almacene previamente
+
+    if (!token) {
+      alert("No se encontró el token de autenticación. Por favor, inicia sesión.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,  // Enviar el token en el header
         },
         body: JSON.stringify(fine),
       });
