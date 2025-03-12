@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import avatarImage from "./imagenes/working.png";
+import cryptoJS from "crypto-js"; // Importar la librería para MD5
 
 interface LoginForm {
   phone: string;
@@ -11,7 +12,7 @@ interface LoginForm {
 const LoginScreen: React.FC = () => {
   const [formData, setFormData] = useState<LoginForm>({ phone: "", password: "" });
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate(); // Hook para la navegación
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,33 +20,48 @@ const LoginScreen: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); // Resetear error antes de hacer la petición
+    setError(null);
+
+    const phoneTrimmed = formData.phone.trim();
+    const passwordTrimmed = formData.password.trim();
+
+    // Encriptar la contraseña con MD5 antes de enviarla
+    const hashedPassword = cryptoJS.MD5(passwordTrimmed).toString();
+    
+    console.log("Datos de login enviados:", { phone: phoneTrimmed, password: hashedPassword });
+
+    const loginData = { phone: phoneTrimmed, password: hashedPassword };
 
     try {
-      const response = await fetch("https://apicondominios.onrender.com/api/auth/login", { 
+      const response = await fetch("https://apicondominios.onrender.com/api/login", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(loginData),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error("Error en la autenticación:", errorData);
         throw new Error(errorData.message || "Error en la autenticación");
       }
 
       const data = await response.json();
-      console.log("Login exitoso:", data);
+      console.log("Login exitoso, datos recibidos:", data);
 
-      localStorage.setItem("token", data.token); // Guardamos el token
-      localStorage.setItem("role", data.role);   // Guardamos el rol del usuario
+      // Guardar el token y el rol en localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
+      localStorage.setItem("phone", formData.phone); // Guarda el teléfono para usarlo en el cambio de contraseña y logout
 
       // Redirigir según el rol
       if (data.role === "admin") {
+        console.log("Redirigiendo a admin-dashboard");
         navigate("/admin-dashboard");
       } else {
+        console.log("Redirigiendo a user-dashboard");
         navigate("/user-dashboard");
       }
-
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
       setError(error instanceof Error ? error.message : "Ha ocurrido un error desconocido");
@@ -62,7 +78,7 @@ const LoginScreen: React.FC = () => {
       </div>
       <h2 className="login-title">Log In</h2>
 
-      {error && <div className="error-message">{error}</div>} {/* Mostrar mensaje de error */}
+      {error && <div className="error-message">{error}</div>}
 
       <form className="login-form" onSubmit={handleSubmit}>
         <input
@@ -81,7 +97,9 @@ const LoginScreen: React.FC = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button className="login-button" type="submit">Log In</button>
+        <button className="login-button" type="submit">
+          Log In
+        </button>
       </form>
     </div>
   );

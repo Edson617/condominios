@@ -42,13 +42,24 @@ function RegisterScreen() {
     }
 
     try {
-      const response = await fetch('https://apicondominios.onrender.com/api/register', {  // Cambia esta URL por la de tu API en Render
+      // Verifica los valores antes de enviar la solicitud
+      console.log("Enviando datos de registro:", {
+        phone: formData.username, // Cambié 'username' por 'phone'
+        email: formData.email,
+        password: formData.password,
+        department: formData.department,
+        name: formData.username,  // Usé 'username' como 'name' también
+        role: formData.role
+      });
+
+      const response = await fetch('https://apicondominios.onrender.com/api/register', {
+        // Cambia esta URL por la de tu API en Render
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          phone: formData.username,
+          phone: formData.username, // Cambio de 'username' a 'phone'
           email: formData.email,
           password: formData.password,
           department: formData.department,
