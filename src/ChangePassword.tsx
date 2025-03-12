@@ -57,7 +57,7 @@ const ChangePassword: React.FC = () => {
   return (
     <div className="change-password-container">
       <h2>Cambiar Contraseña</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="change-password-form">
         <label>
           Contraseña Actual:
           <input
@@ -65,6 +65,7 @@ const ChangePassword: React.FC = () => {
             value={oldPassword}
             onChange={(e) => setOldPassword(e.target.value)}
             required
+            className="change-password-input"
           />
         </label>
         <br />
@@ -75,6 +76,7 @@ const ChangePassword: React.FC = () => {
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
             required
+            className="change-password-input"
           />
         </label>
         <br />
@@ -85,10 +87,13 @@ const ChangePassword: React.FC = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+            className="change-password-input"
           />
         </label>
         <br />
-        <button type="submit">Cambiar Contraseña</button>
+        <button type="submit" className="change-password-button">
+          Cambiar Contraseña
+        </button>
       </form>
       {message && <p className="success-message">{message}</p>}
       {error && <p className="error-message">{error}</p>}
