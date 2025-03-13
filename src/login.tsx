@@ -1,8 +1,7 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import avatarImage from "./imagenes/working.png";
-import cryptoJS from "crypto-js"; // Importar la librería para MD5
 
 interface LoginForm {
   phone: string;
@@ -25,16 +24,12 @@ const LoginScreen: React.FC = () => {
     const phoneTrimmed = formData.phone.trim();
     const passwordTrimmed = formData.password.trim();
 
-    // Encriptar la contraseña con MD5 antes de enviarla
-    const hashedPassword = cryptoJS.MD5(passwordTrimmed).toString();
-    
-    console.log("Datos de login enviados:", { phone: phoneTrimmed, password: hashedPassword });
+    console.log("Datos de login enviados:", { phone: phoneTrimmed, password: passwordTrimmed });
 
-    const loginData = { phone: phoneTrimmed, password: hashedPassword };
+    const loginData = { phone: phoneTrimmed, password: passwordTrimmed };
 
     try {
       const response = await fetch("https://apicondominios.onrender.com/api/login", {
-
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData),
