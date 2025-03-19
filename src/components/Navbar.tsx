@@ -25,10 +25,31 @@ const Navbar: React.FC = () => {
   const [unreadNotifications, setUnreadNotifications] = useState<number>(0); // Estado para las notificaciones no leídas
   const navigate = useNavigate(); // Hook para navegar
 
+  // Función para verificar si el token está expirado
+  const isTokenExpired = (token: string) => {
+    try {
+      const [, payload] = token.split(".");
+      const decoded = JSON.parse(atob(payload));
+      return decoded.exp * 1000 < Date.now();
+    } catch {
+      return true; // Si hay un error al decodificar, asumimos que está inválido
+    }
+  };
+
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
         const token = localStorage.getItem('token');
+
+        console.log("Token obtenido:", token); // 👀 Verifica si el token existe
+
+        if (!token || isTokenExpired(token)) {
+          console.error("Token inválido o expirado, redirigiendo a login...");
+          localStorage.removeItem("token");
+          navigate("/login");
+          return;
+        }
+
         const response = await axios.get<Notification[]>("https://apicondominios.onrender.com/api/notifications", {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -42,7 +63,7 @@ const Navbar: React.FC = () => {
     };
 
     fetchNotifications();
-  }, []); // Solo se ejecuta al montar el componente
+  }, [navigate]); // Se ejecuta cuando se monta el componente
 
   return (
     <nav className="navbar">
